@@ -37,6 +37,7 @@ This is a **project site** (`…/public/`). Deploy from the **`master`** branch,
 ## Editing tips
 
 - Keep App Store Support / Privacy paths stable: root and each app’s `support.html` and `privacy-policy.html` (plus `ws/word-slug-2-account-deletion.html`).
+- Root also keeps `privacy_policy.html` (underscore) as an alias of `privacy-policy.html` — Google Play Console historically used that URL; do not delete it.
 - Prefer relative links so the site works locally and under `/public/`.
 - After changing shared CSS or JS, spot-check root and each app folder (`../css/styles.css`, `../js/scripts.js`).
 - Gym Bingo has no verified store listing URL yet — do not put Word Slug store badge links on `gb/` pages.

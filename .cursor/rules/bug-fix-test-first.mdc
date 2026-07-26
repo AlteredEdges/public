@@ -1,0 +1,21 @@
+---
+description: Bug fixes require a failing automated repro test before changing production code
+alwaysApply: true
+---
+
+# Bug fix: reproducing test first (red → green)
+
+Before fixing a bug in this repo:
+
+1. Add a **failing automated test** (or scripted repro) that demonstrates the issue on current code.
+2. **Then** implement the fix. Land test + fix together when possible.
+3. Run whatever test/lint command this repo defines (CI workflow, `package.json` scripts, etc.) before commit.
+
+## Exceptions (rare)
+
+Document in commit message: docs-only, static assets, emergency publish with **follow-up test** if code is involved.
+
+## Anti-patterns
+
+- Fix first without a red phase.
+- Tests that pass while the bug still exists.

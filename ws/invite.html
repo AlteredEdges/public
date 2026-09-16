@@ -1,27 +1,140 @@
+<!-- https://alterededges.github.io/public/ws/invite.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Play Word Slug 2</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>You're invited to play Word Slug 2</title>
+    <meta
+      name="description"
+      content="A friend challenged you to a match in Word Slug 2. Tap to play."
+    />
+    <meta name="author" content="Altered Edges, LLC" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Word Slug 2" />
+    <meta property="og:title" content="You're invited to play Word Slug 2" />
+    <meta
+      property="og:description"
+      content="A friend challenged you to a match. Tap to open the game."
+    />
+    <meta
+      property="og:url"
+      content="https://alterededges.github.io/public/ws/invite.html"
+    />
+    <meta
+      property="og:image"
+      content="https://alterededges.github.io/public/assets/img/Icon-512.png"
+    />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="You're invited to play Word Slug 2" />
+    <meta
+      name="twitter:description"
+      content="A friend challenged you to a match. Tap to open the game."
+    />
+    <meta
+      name="twitter:image"
+      content="https://alterededges.github.io/public/assets/img/Icon-512.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="../css/styles.css" rel="stylesheet" />
   </head>
-  <body>
-    <h1>Word Slug 2</h1>
-    <p id="status">Opening the app…</p>
-    <p>
-      <a href="https://apps.apple.com/app/word-slug-2/id6448659885">App Store</a>
-      ·
-      <a href="https://play.google.com/store/apps/details?id=com.alterededges.wordslug2">Google Play</a>
-    </p>
+  <body id="page-top">
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container d-flex align-items-center flex-column">
+        <img
+          class="masthead-avatar mb-4"
+          src="../assets/img/Icon-512.png"
+          alt="Word Slug 2 app icon"
+        />
+        <h1 class="masthead-heading text-uppercase mb-0">Word Slug 2</h1>
+        <div class="divider-custom divider-light">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+          <div class="divider-custom-line"></div>
+        </div>
+        <p id="status" class="masthead-subheading font-weight-light mb-0">
+          A friend challenged you to a match.
+        </p>
+        <p class="mt-4 mb-0">
+          <a id="open-app" class="btn btn-xl btn-outline-light" href="#"
+            >Play now</a
+          >
+        </p>
+        <img
+          class="img-fluid rounded mt-5"
+          src="../assets/img/portfolio/WordSlug2_GamePlay_Apple_6.5_1242X2688.png"
+          alt="Word Slug 2 gameplay"
+          width="280"
+        />
+        <p class="mt-4 mb-2">Don’t have the app?</p>
+        <div
+          class="d-flex justify-content-center align-items-center flex-row"
+        >
+          <a href="https://apps.apple.com/app/id6448659885">
+            <img
+              class="img-fluid"
+              src="../assets/img/app-store.svg"
+              alt="Download on the App Store"
+              width="150"
+              height="150"
+            />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.alterededges.wordslug2"
+          >
+            <img
+              class="img-fluid"
+              src="../assets/img/google-play.svg"
+              alt="Get it on Google Play"
+              width="150"
+              height="150"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; Altered Edges LLC 2026</small>
+      </div>
+    </div>
     <script>
       (function () {
-        var from = new URLSearchParams(window.location.search).get("from") || "";
+        var params = new URLSearchParams(window.location.search);
+        var from = params.get("from") || "";
+        var rawName = (params.get("name") || "").trim();
+        var name = rawName.slice(0, 32);
+        var openBtn = document.getElementById("open-app");
+        var statusEl = document.getElementById("status");
         if (!from) {
-          document.getElementById("status").textContent =
+          statusEl.textContent =
             "Install Word Slug 2, then ask your friend to send a new invite.";
+          openBtn.style.display = "none";
           return;
         }
-        window.location = "wordslug2://invite?from=" + encodeURIComponent(from);
+        if (name) {
+          statusEl.textContent = name + " challenged you in Word Slug 2.";
+        }
+        var appUrl = "wordslug2://invite?from=" + encodeURIComponent(from);
+        openBtn.href = appUrl;
+        window.location = appUrl;
       })();
     </script>
   </body>
